@@ -1,0 +1,5 @@
+{
+  // Allow ES6.
+  "esnext": true,
+  "-W034": true
+}
