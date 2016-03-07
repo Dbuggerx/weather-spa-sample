@@ -1,6 +1,6 @@
 {
   "name": "weather-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sample weather SPA",
   "main": "app.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "dependencies": {
       "angular": "npm:angular@^1.5.0",
       "angular-mocks": "npm:angular-mocks@^1.5.0",
+      "angular-resource": "npm:angular-resource@^1.5.0",
       "angular-ui-router": "npm:angular-ui-router@^0.2.18"
     },
     "devDependencies": {

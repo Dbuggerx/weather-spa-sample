@@ -3,7 +3,7 @@ import 'angular-ui-router';
 import './common/templates';
 import home from './home/home.module';
 
-const mainModule = angular.module('weather', [
+export default angular.module('weather', [
     'templates',
     'ui.router',
     home.name
