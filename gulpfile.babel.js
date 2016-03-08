@@ -8,7 +8,9 @@ global.paths = {
   // JS sources.
   'js': 'app/**/!(*.spec)*.js',
   // SASS sources.
-  'sass': 'app/**/!(app)*.scss',
+  'sass': ['app/**/*.scss', '!app/scss/**/*.scss'],
+  // SASS base file
+  'sassBase': 'app/scss/app.scss',
   // Image sources.
   'img': 'app/img',
   // Font sources.

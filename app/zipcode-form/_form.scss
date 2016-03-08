@@ -1,0 +1,18 @@
+.weather-form {
+  max-width: 50%;
+  margin: auto;
+
+  &__row {
+    @include outer-container(50%);
+    line-height: $base-line-height;
+  }
+
+  &__label {
+    @include span-columns(2);
+  }
+
+  &__input {
+    @include span-columns(10);
+  }
+
+}

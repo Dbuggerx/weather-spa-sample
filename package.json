@@ -22,7 +22,12 @@
       "angular": "npm:angular@^1.5.0",
       "angular-mocks": "npm:angular-mocks@^1.5.0",
       "angular-resource": "npm:angular-resource@^1.5.0",
-      "angular-ui-router": "npm:angular-ui-router@^0.2.18"
+      "angular-ui-router": "npm:angular-ui-router@^0.2.18",
+      "bitters": "bower:bitters@^1.3.1",
+      "countries-list": "npm:countries-list@^1.0.3",
+      "jquery": "bower:jquery@^2.2.1",
+      "json": "github:systemjs/plugin-json@^0.1.0",
+      "normalize-css": "bower:normalize-css@^3.0.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
@@ -65,6 +70,8 @@
     "karma-jspm": "^2.0.2",
     "karma-phantomjs2-launcher": "^0.5.0",
     "karma-spec-reporter": "0.0.24",
+    "node-bourbon": "^4.2.3",
+    "node-neat": "^1.7.2",
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.4",
     "postcss-assets": "^4.0.1",

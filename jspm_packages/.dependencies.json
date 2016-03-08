@@ -44,5 +44,11 @@
   "npm:angular-ui-router@0.2.18": {
     "angular": "npm:angular@^1.0.8",
     "process": "github:jspm/nodelibs-process@^0.1.0"
-  }
+  },
+  "npm:angular-resource@1.5.0": {},
+  "bower:normalize-css@3.0.3": {
+    "css": "jspm:css"
+  },
+  "github:systemjs/plugin-css@0.1.20": {},
+  "bower:bitters@1.3.1": {}
 }

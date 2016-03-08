@@ -13,22 +13,18 @@ import minifyCss from 'gulp-cssnano';
 import del from 'del';
 import path from 'path';
 import concat from 'gulp-concat';
-import order from 'stream-series';
-
-const sassDocOptions = {
-  dest: global.paths.sassdocs
-};
+import neat from 'node-neat';
 
 const sassOptions = {
   errLogToConsole: true,
-  outputStyle: 'expanded'
+  outputStyle: 'expanded',
+  includePaths: neat.includePaths
 };
 
 gulp.task('sass', () => {
-  return order(gulp.src(path.join(global.paths.src, 'scss', 'app.scss')), gulp.src(global.paths.sass))
-    .pipe(concat('app.css'))
+  return gulp.src(global.paths.sassBase)
+    .pipe(rename('app.css'))
     .pipe(sass(sassOptions).on('error', sass.logError))
-    //.pipe(rename('app.css'))
     .pipe(postcss([autoprefixer(),
       postcssImport({
         transform(content){
