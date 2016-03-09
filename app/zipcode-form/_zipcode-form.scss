@@ -1,25 +1,17 @@
-.weather-form {
-  padding-top: 100px;
-
+.zipcode-form {
   &__row {
     @include outer-container(50%);
     line-height: $base-line-height;
     margin-bottom: 15px;
+    vertical-align: middle;
 
     &--error {
+      border-radius: $base-border-radius;
       background-color: $error;
       color: lighten($error, 50%);
       padding: 5px;
       font-weight: bold;
     }
-  }
-
-  &__label {
-    @include span-columns(2);
-  }
-
-  &__input {
-    @include span-columns(10);
   }
 
   &__right {

@@ -1,0 +1,28 @@
+.navbar {
+  background-color: $primary-color;
+  color: $light-gray;
+  line-height: 4rem;
+  padding: 0 $base-spacing;
+  margin-bottom: $base-spacing * 3;
+
+  &--large {
+    height: 10rem;
+  }
+
+  &__back {
+    cursor: pointer;
+    float: left;
+    margin-right: 15px;
+  }
+
+  &__link {
+    color: $light-gray;
+    &--right {
+      float: right;
+    }
+
+    &:hover {
+      color: $light-gray;
+    }
+  }
+}

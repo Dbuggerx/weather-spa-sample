@@ -6,10 +6,8 @@
   $dropdown-background: $base-background-color;
   $dropdown-background-hover: darken($dropdown-background, 3%);
   $dropdown-inner-border: 1px solid $medium-gray;
-  $dropdown-height: 40px;
-  $dropdown-padding: 1em;
-  $dropdown-distance-from-menu: 30px;
-  $dropdown-arrow-top-distance: 0;
+  $dropdown-distance-from-menu: 41px;
+  $dropdown-arrow-top-distance: 8px;
 
   box-sizing: padding-box;
   line-height: $base-line-height;
@@ -21,17 +19,10 @@
   }
 
   &__button {
-    background: $base-background-color;
-    border: $dropdown-border;
+    @extend %form-control;
     cursor: pointer;
-    padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
     position: relative;
     text-align: left;
-    width: 100%;
-  }
-
-  &__button:hover {
-    background-color: $dropdown-background-hover;
   }
 
   &__button:after {

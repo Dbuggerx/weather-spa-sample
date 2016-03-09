@@ -5,7 +5,7 @@ const privates = new WeakMap();
 export default class HomeCtrl {
   constructor($scope, $state, OpenWeather) {
     'ngInject';
-    this.msg = 'Hello world';
+    this.title = 'Waiting for your location...';
 
     privates.set(this, {
       $scope, $state, OpenWeather

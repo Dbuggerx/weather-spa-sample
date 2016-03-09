@@ -1,3 +1,9 @@
-<div class="container">
+<div class="container home">
+  <div ng-if="!homeCtrl.weather" class="home__waiting">
+    <h1>{{homeCtrl.title}}</h1>
+    <img src="img/gps.svg" />
+    <hr />
+    <button ui-sref="weather.zipcode-form">Check the weather by zip code instead</button>
+  </div>
   <weather-card weather="homeCtrl.weather"></weather-card>
 </div>

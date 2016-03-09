@@ -15,6 +15,7 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
+  vertical-align: middle;
 }
 
 input,
@@ -26,7 +27,7 @@ textarea {
 }
 
 #{$all-text-inputs},
-select[multiple] {
+select[multiple], %form-control {
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;

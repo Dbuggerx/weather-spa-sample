@@ -19,8 +19,17 @@
 </head>
 
 <body ng-cloak>
-  <div ui-view="" autoscroll="true"></div>
-
+  <main>
+    <header>
+      <nav class="navbar">
+        <a ui-sref="weather.home" class="navbar__link" target="_blank">Weather sample SPA</a>
+        <a href="https://br.linkedin.com/in/danilo-cestari-82baab35" class="navbar__link navbar__link--right" target="_blank">
+          Developed by <strong>Danilo Cestari</strong>
+        </a>
+      </nav>
+    </header>
+    <div ui-view="" autoscroll="true"></div>
+  </main>
 </body>
 
 </html>

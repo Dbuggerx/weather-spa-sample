@@ -1,0 +1,7 @@
+.home {
+  @include outer-container(50%);
+
+  &__waiting {
+    text-align: center;
+  }
+}
