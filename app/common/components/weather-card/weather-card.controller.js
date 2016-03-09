@@ -10,12 +10,12 @@ export default class WeatherCardCtrl {
     return this.weather;
   }
 
-  get currentDate() {
-    return this.weatherAvailable ? moment.unix(this.weather.dt).utc().format('dddd, MMMM Do YYYY') : null;
-  }
-
   getWeatherData(fnGetData){
     return !this.weatherAvailable ? null : fnGetData(this.weather);
+  }
+
+  get currentDate() {
+    return this.getWeatherData(weather => moment.unix(weather.dt).utc().format('dddd, MMMM Do YYYY'));
   }
 
   get hasWeatherData(){
