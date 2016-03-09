@@ -34,7 +34,7 @@ gulp.task('sass', () => {
       postcssAssets({
         basePath: '.',
         relativeTo: global.paths.src,
-        loadPaths: [global.paths.img]
+        loadPaths: [global.paths.img, 'jspm_packages/npm/mdi@1.5.54/fonts']
       })
     ]))
     .pipe(gulp.dest(global.paths.src));

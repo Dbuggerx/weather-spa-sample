@@ -1,0 +1,28 @@
+.weather-card {
+  @include transition(all .15s ease-out);
+  border-radius: 4px;
+  border: solid 2px $medium-gray;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: .8em;
+  margin: auto;
+  padding: 20px;
+  max-width: 450px;
+  background: $base-background-color;
+
+  &__row {
+    clear: both;
+    line-height: $base-line-height;
+    vertical-align: middle;
+  }
+
+  &__image {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__description {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}

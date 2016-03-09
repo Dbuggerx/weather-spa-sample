@@ -1,1 +1,31 @@
-<h1>WEATHER {{$ctrl.weather.base | capitalize}}</h1>
+<article class="weather-card" ng-if="$ctrl.weatherAvailable">
+  <h1>Weather in {{$ctrl.weather.name}}</h1>
+  <div class="weather-card__row">{{$ctrl.currentDate}}</div>
+  <div ng-if="$ctrl.hasWeatherData" class="weather-card__row">
+    <img ng-src="{{$ctrl.iconUrl}}" class="weather-card__image" />
+    <span class="weather-card__description">{{$ctrl.description | capitalize}}</span>
+  </div>
+  <div ng-if="$ctrl.hasMainData" class="weather-card__row">
+    <div>
+      <span class="weather-icon weather-icon--temperature"></span> Temperature: {{$ctrl.temperature}}
+      <span ng-if="$ctrl.shouldShowMinMaxTemp">
+      (Min. {{$ctrl.minTemperature}} Max. {{$ctrl.maxTemperature}})
+    </span>
+      <div>
+        <span class="weather-icon weather-icon--humidity"></span> Humidity: {{$ctrl.humidity}}
+      </div>
+    </div>
+  </div>
+  <div ng-if="$ctrl.hasWind" class="weather-card__row">
+    <span class="weather-icon weather-icon--wind"></span> Wind Speed: {{$ctrl.windSpeed}}
+  </div>
+  <div ng-if="$ctrl.hasClods" class="weather-card__row">
+    <span class="weather-icon weather-icon--cloud"></span> Cloudiness: {{$ctrl.cloudiness}}
+  </div>
+  <div ng-if="$ctrl.hasRain" class="weather-card__row">
+    <span class="weather-icon weather-icon--rain"></span> Rain volume: {{$ctrl.rain}}
+  </div>
+  <div ng-if="$ctrl.hasSnow" class="weather-card__row">
+    <span class="weather-icon weather-icon--snow"></span> Snow volume: {{$ctrl.snow}}
+  </div>
+</article>

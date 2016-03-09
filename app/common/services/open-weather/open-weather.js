@@ -11,12 +11,12 @@ export default class OpenWeather {
 
     privates.set(this, {
       endpoints: {
-        geolocation: $resource(`${baseUrl}?lat=:latitude&lon=:longitude&units=imperial&APPID=:key`, {
+        geolocation: $resource(`${baseUrl}?lat=:latitude&lon=:longitude&units=metric&APPID=:key`, {
           latitude: '@latitude',
           longitude: '@longitude',
           key
         }),
-        zipCode: $resource(`${baseUrl}?zip=:zip,:country&units=imperial&APPID=:key`, {
+        zipCode: $resource(`${baseUrl}?zip=:zip,:country&units=metric&APPID=:key`, {
           zip: '@zip',
           country: '@country',
           key

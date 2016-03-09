@@ -26,6 +26,8 @@ System.config({
     "countries-list": "npm:countries-list@1.0.3",
     "jquery": "bower:jquery@2.2.1",
     "json": "github:systemjs/plugin-json@0.1.0",
+    "mdi": "npm:mdi@1.5.54",
+    "moment": "bower:moment@2.12.0",
     "normalize-css": "bower:normalize-css@3.0.3",
     "bower:normalize-css@3.0.3": {
       "css": "github:systemjs/plugin-css@0.1.20"

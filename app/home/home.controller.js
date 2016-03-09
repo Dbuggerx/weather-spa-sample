@@ -22,6 +22,6 @@ export default class HomeCtrl {
         this.weather = weather;
         me.$scope.$digest();
       })
-      .catch(err => console.log(err));
+      .catch(err => me.$state.go('weather.zipcode-form'));
   }
 }

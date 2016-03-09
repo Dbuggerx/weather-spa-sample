@@ -1,0 +1,32 @@
+.weather-icon {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  display: inline-block;
+  color: $accent-color;
+
+  &--temperature::before {
+    @include icon('thermometer-lines');
+  }
+
+  &--humidity::before {
+    @include icon('water-percent');
+  }
+
+  &--wind::before {
+    @include icon('weather-windy');
+  }
+
+  &--cloud::before {
+    @include icon('weather-cloudy');
+  }
+
+  &--rain::before {
+    @include icon('weather-pouring');
+  }
+
+  &--snow::before {
+    @include icon('weather-snowy');
+  }
+
+
+}

@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form ng-submit="zipcodeFormCtrl.getWeather()" class="weather-form">
+    <div class="weather-form__row weather-form__row--error" ng-if="zipcodeFormCtrl.errorMsg">
+      {{zipcodeFormCtrl.errorMsg}}
+    </div>
+    <div class="weather-form__row">
+      <label for="zipcode" class="weather-form__label">Zipcode:</label>
+      <input name="zipcode" id="zipcode" class="weather-form__input" ng-model="zipcodeFormCtrl.zipCode" placeholder="Zipcode" />
+    </div>
+    <div class="weather-form__row">
+      <label for="country" class="weather-form__label">Country:</label>
+      <div class="weather-form__input" refills-dropdown>
+        <div class="dropdown__container">
+          <div class="dropdown__button">
+            {{zipcodeFormCtrl.country.name}}
+          </div>
+          <ul class="dropdown__menu">
+            <li class="dropdown__menu-item" data-ng-repeat="country in zipcodeFormCtrl.countries"
+            data-ng-click="zipcodeFormCtrl.selectCountry(country)">
+              {{country.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="weather-form__row">
+      <input type="submit" value="Check Weather" class="weather-form__right" />
+    </div>
+  </form>
+
+  <weather-card weather="zipcodeFormCtrl.weather"></weather-card>
+</div>

@@ -42,7 +42,8 @@ module.exports = function (config) {
       serveFiles: [
         'app/**/*.js',
         'app/**/*.html',
-        'app/**/*.css'
+        'app/**/*.css',
+        'jspm_packages/npm/countries-list@1.0.3/countries.minimal.json'
       ]
     },
 
