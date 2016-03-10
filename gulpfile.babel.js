@@ -6,7 +6,7 @@ global.paths = {
   // HTML sources.
   'html': 'app/**/!(index)*.html',
   // JS sources.
-  'js': 'app/**/!(*.spec)*.js',
+  'js': 'app/**/!(*.spec|*.protractor)*.js',
   // SASS sources.
   'sass': 'app/**/*.scss',
   // SASS base file
@@ -20,7 +20,9 @@ global.paths = {
   // Compiled CSS.
   'common': 'app/common',
   // Distribution folder.
-  'dist': 'dist'
+  'dist': 'dist',
+  //Protractor specs
+  'protractor': './**/*.protractor.js'
 };
 
 import gulp from 'gulp';

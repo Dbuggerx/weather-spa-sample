@@ -1,5 +1,18 @@
 {
   // Allow ES6.
   "esnext": true,
-  "-W034": true
+  "-W034": true,
+  "globals": {
+    "expect": false,
+    "element": false,
+    "browser": false,
+    "it": false,
+    "by": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "inject": false,
+    "spyOn": false,
+    "jasmine": false
+  }
 }

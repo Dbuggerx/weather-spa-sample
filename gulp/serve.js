@@ -5,10 +5,8 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import util from 'gulp-util';
 import path from 'path';
-import runSeq from 'run-sequence';
 import historyApiFallback from 'connect-history-api-fallback';
-
-let bs = browserSync.create();
+const bs = browserSync.create();
 
 function onChange(event) {
   util.log(
@@ -39,33 +37,19 @@ gulp.task('serve', ['sass', 'templates'], () => {
   gulp.watch([global.paths.html, path.join(global.paths.src, 'index.html')], ['reload']).on('change', onChange);
 });
 
-gulp.task('serve:dist', ['build'], () => {
+gulp.task('serve:dist', ['build'], done => {
   bs.init({
     port: process.env.PORT || 3000,
     open: true,
     server: {
       baseDir: global.paths.dist,
       middleware: [historyApiFallback()]
-    },
-  });
-});
-
-gulp.task('serve:jsdoc', ['jsdoc'], () => {
-  bs.init({
-    port: process.env.PORT || 3000,
-    open: true,
-    server: {
-      baseDir: global.paths.jsdocs
     }
   });
+  done();
 });
 
-gulp.task('serve:sassdoc', ['sassdoc'], () => {
-  bs.init({
-    port: process.env.PORT || 3000,
-    open: true,
-    server: {
-      baseDir: global.paths.sassdocs
-    }
-  });
+gulp.task('serve:stop', done => {
+  bs.exit();
+  done();
 });

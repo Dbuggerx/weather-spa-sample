@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "karma start",
+    "preinstall": "npm install -g jspm && npm install -g gulp",
     "postinstall": "jspm registry create bower jspm-bower-endpoint && jspm install"
   },
   "keywords": [
@@ -46,6 +47,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-angular-protractor": "^0.1.1",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-babel": "^6.1.2",
     "gulp-cached": "^1.1.0",
@@ -79,6 +81,7 @@
     "postcss-assets": "^4.0.1",
     "postcss-copy": "^3.1.0",
     "postcss-import": "^8.0.2",
+    "protractor": "^3.1.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5"
   }
