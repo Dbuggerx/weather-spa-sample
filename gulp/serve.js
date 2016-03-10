@@ -48,8 +48,3 @@ gulp.task('serve:dist', ['build'], done => {
   });
   done();
 });
-
-gulp.task('serve:stop', done => {
-  bs.exit();
-  done();
-});

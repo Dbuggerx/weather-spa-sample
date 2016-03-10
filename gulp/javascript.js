@@ -22,11 +22,11 @@ gulp.task('build-js', ['build-templates'], () => {
     .then(() => {
       return gulp.src(dist)
         .pipe(ngAnnotate())
-        // .pipe(uglify({
-        //   compress: {
-        //     unused: false
-        //   }
-        // }))
+        .pipe(uglify({
+          compress: {
+            unused: false
+          }
+        }))
         .pipe(gulp.dest(global.paths.dist));
     });
 });
