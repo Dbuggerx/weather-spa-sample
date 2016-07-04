@@ -10,7 +10,7 @@ First, execute `npm install` in the application directory, then:
 - To run the unit tests:
 	`npm test`
 
-- To run the unit tests:
+- To run the e2e tests:
 	`gulp protractor`
 
 - To serve the "development" version of the application:
