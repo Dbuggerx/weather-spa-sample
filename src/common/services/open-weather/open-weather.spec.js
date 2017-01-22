@@ -29,7 +29,7 @@ describe('OpenWeather Service', () => {
 
   describe('getByZip', () => {
     it('should call OpenWeatherMap.org', done => {
-      $httpBackend.expectGET('http://api.openweathermap.org/data/2.5/weather?zip=123,us&units=metric&APPID=a22b2fa4abeb9caf7969f9961e7970b8')
+      $httpBackend.expectGET('http://api.openweathermap.org/data/2.5/weather?q=123,us&units=metric&APPID=a22b2fa4abeb9caf7969f9961e7970b8')
         .respond({
           test: 'Api response'
         });

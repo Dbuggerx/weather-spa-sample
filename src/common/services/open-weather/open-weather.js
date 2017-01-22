@@ -16,7 +16,7 @@ export default class OpenWeather {
           longitude: '@longitude',
           key
         }),
-        zipCode: $resource(`${baseUrl}?zip=:zip,:country&units=metric&APPID=:key`, {
+        zipCode: $resource(`${baseUrl}?q=:zip,:country&units=metric&APPID=:key`, {
           zip: '@zip',
           country: '@country',
           key
