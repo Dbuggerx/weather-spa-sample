@@ -1,5 +1,5 @@
-$mdi-font-path: '../jspm_packages/npm/mdi@1.5.54/fonts';
-@import '../../jspm_packages/npm/mdi@1.5.54/scss/materialdesignicons';
+$mdi-font-path: '../jspm_packages/npm/mdi@1.8.36/fonts';
+@import '../../jspm_packages/npm/mdi@1.8.36/scss/materialdesignicons';
 
 @mixin icon($name) {
   content: mdi($name);

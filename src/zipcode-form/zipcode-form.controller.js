@@ -1,5 +1,5 @@
 /** Loading the ISO country list using JSPM's JSON loader plugin */
-import jsonData from '../../jspm_packages/npm/countries-list@1.0.3/countries.minimal.json!json';
+import jsonData from '../../jspm_packages/npm/countries-list@1.2.0/countries.minimal.json!json';
 
 const privates = new WeakMap();
 

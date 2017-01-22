@@ -38,12 +38,12 @@ module.exports = function (config) {
     jspm: {
       // Edit this to your needs
       config: 'config.js',
-      loadFiles: ['app/**/*.spec.js'],
+      loadFiles: ['src/**/*.spec.js'],
       serveFiles: [
-        'app/**/*.js',
-        'app/**/*.html',
-        'app/**/*.css',
-        'jspm_packages/npm/countries-list@1.0.3/countries.minimal.json'
+        'src/**/*.js',
+        'src/**/*.html',
+        'src/**/*.css',
+        'jspm_packages/npm/countries-list@1.2.0/countries.minimal.json'
       ]
     },
 

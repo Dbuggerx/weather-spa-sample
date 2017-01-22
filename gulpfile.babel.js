@@ -4,21 +4,21 @@
 // Specify paths & globbing patterns for tasks.
 global.paths = {
   // HTML sources.
-  'html': 'app/**/!(index)*.html',
+  'html': 'src/**/!(index)*.html',
   // JS sources.
-  'js': 'app/**/!(*.spec|*.protractor)*.js',
+  'js': 'src/**/!(*.spec|*.protractor)*.js',
   // SASS sources.
-  'sass': 'app/**/*.scss',
+  'sass': 'src/**/*.scss',
   // SASS base file
-  'sassBase': 'app/scss/app.scss',
+  'sassBase': 'src/scss/app.scss',
   // Image sources.
-  'img': 'app/img',
+  'img': 'src/img',
   // Font sources.
-  'font': 'app/font',
+  'font': 'src/font',
   // Sources folder.
-  'src': 'app',
+  'src': 'src',
   // Compiled CSS.
-  'common': 'app/common',
+  'common': 'src/common',
   // Distribution folder.
   'dist': 'dist',
   //Protractor specs

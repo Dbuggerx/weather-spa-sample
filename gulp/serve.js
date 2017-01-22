@@ -24,9 +24,14 @@ gulp.task('serve', ['sass', 'templates'], () => {
   bs.init({
     port: process.env.PORT || 3000,
     open: true,
+    startPath: global.paths.src,
     server: {
-      baseDir: [global.paths.src, './'],
-      middleware: [historyApiFallback()]
+      directory: false,
+      baseDir: ['./', global.paths.src],
+      middleware: [historyApiFallback()],
+      routes: {
+        "jspm_packages": './jspm_packages'
+      }
     }
   });
 
