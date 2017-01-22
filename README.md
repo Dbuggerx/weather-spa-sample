@@ -5,19 +5,19 @@ Sample SPA done with AngularJS, ES6, JSPM, Gulp
 
 **Running the application:**
 
-First, execute `npm install` in the application directory, then:
+First, execute `yarn install` in the application directory, then:
 
 - To run the unit tests:
-	`npm test`
+	`yarn test`
 
 - To run the e2e tests:
-	`gulp protractor`
+	`yarn run protractor`
 
 - To serve the "development" version of the application:
-	`gulp serve`
+	`yarn start`
 
 - To serve the "production" version of the application:
-	`gulp serve:dist`
+	`yarn run production`
 
 - To build the application for production (results will be inside the "dist" directory):
-	`gulp build`
+	`yarn run build`
