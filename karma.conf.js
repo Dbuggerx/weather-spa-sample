@@ -6,7 +6,7 @@ module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: './',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -14,7 +14,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS2'],
+    browsers: ['PhantomJS'],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -37,27 +37,28 @@ module.exports = function (config) {
 
     jspm: {
       // Edit this to your needs
-      config: 'config.js',
+      config: 'jspm.config.js',
       loadFiles: ['src/**/*.spec.js'],
       serveFiles: [
+        'jspm_packages/system-polyfills.js',
         'src/**/*.js',
         'src/**/*.html',
-        'src/**/*.css',
-        'jspm_packages/npm/countries-list@1.2.0/countries.minimal.json'
+        'src/**/*.css'
       ]
     },
 
     proxies: {
-      '/app': '/base/app',
-      '/jspm_packages/': '/base/jspm_packages/'
+      '/src': '/base/src',
+      '/jspm_packages/': '/base/jspm_packages/',
     },
 
     // list of files to exclude
     exclude: [],
 
+    files: ['node_modules/babel-polyfill/dist/polyfill.js'],
+
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO
-
   });
 };
