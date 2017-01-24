@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const neat = require('node-neat');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -82,11 +83,50 @@ module.exports = {
         }]
       },
       {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        use: ['url-loader?limit=100000']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', {
+          loader: 'sass-loader',
+          options: {
+            includePaths: neat.includePaths
+          }
+        }]
+      },
+      {
         test: /\.css$/,
         exclude: /node_modules/,
+        exclude: [/node_modules\/bourbon/],
         use: [
           'style-loader',
-          'css-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function () {
+                return [
+                  require('autoprefixer')(),
+                  require('postcss-assets')({
+                    basePath: '.',
+                    relativeTo: 'src/img',
+                    loadPaths: ['src', 'mdi/fonts']
+                  }),
+                  require('postcss-import')({
+                    transform: function (content) {
+                      return content.replace(/url\((?!.?data)/g, 'resolve(');
+                    }
+                  })
+                ];
+              }
+            }
+          }
         ]
       },
       {
