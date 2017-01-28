@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const neat = require('node-neat');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -21,7 +22,10 @@ const plugins = [
   new HtmlWebpackPlugin({
     title: 'Weather SPA Sample - By Danilo Cestari',
     template: 'index.ejs'
-  })
+  }),
+  new CopyWebpackPlugin([
+    { from: 'img', to: 'img'}
+  ])
 ];
 
 if (isProd) {
@@ -81,19 +85,24 @@ module.exports = {
       }]
     }, {
       test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-      use: ['url-loader?limit=100000']
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 25000,
+        }
+      }
     }, {
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', {
-          loader: 'postcss-loader',
-          options: {
-            plugins: function() {
-              return [
-                require('autoprefixer')
-              ];
-            }
+        loader: 'postcss-loader',
+        options: {
+          plugins: function () {
+            return [
+              require('autoprefixer')
+            ];
           }
-        }, {
+        }
+      }, {
           loader: 'sass-loader',
           options: {
             includePaths: neat.includePaths.concat(path.join(path.dirname(require.resolve('mdi')), 'scss'))
@@ -104,7 +113,7 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: 'babel-loader',
-    }, ],
+    },],
   },
   resolve: {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
