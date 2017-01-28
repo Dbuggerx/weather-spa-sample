@@ -6,8 +6,8 @@ import zipform from './zipcode-form/zipcode-form.module';
 import refillsDropdown from './common/components/refills-dropdown/refills-dropdown.module';
 
 //Styles
-import 'mdi/scss/materialdesignicons.scss';
 import 'scss/app.scss';
+import 'normalize-css/normalize.css';
 
 export default angular.module('weather', [
     'templates',

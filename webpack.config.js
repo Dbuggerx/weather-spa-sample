@@ -24,7 +24,7 @@ const plugins = [
     template: 'index.ejs'
   }),
   new CopyWebpackPlugin([
-    { from: 'img', to: 'img'}
+    { from: 'img', to: 'img' }
   ])
 ];
 
@@ -113,7 +113,13 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: 'babel-loader',
-    },],
+    }, {
+      test: /\.css$/,
+      use: [
+        { loader: "style-loader" },
+        { loader: "css-loader" },
+      ],
+    }],
   },
   resolve: {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
