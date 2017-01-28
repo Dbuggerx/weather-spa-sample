@@ -19,7 +19,7 @@ const plugins = [
   new webpack.EnvironmentPlugin(['NODE_ENV']),
   new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({
-    title: 'TEST!!!',
+    title: 'Weather SPA Sample - By Danilo Cestari',
     template: 'index.ejs'
   })
 ];
@@ -56,7 +56,7 @@ if (isProd) {
 }
 
 module.exports = {
-  devtool: isProd ? 'source-map' : 'eval',
+  devtool: isProd ? 'cheap-module-source-map' : 'eval',
   context: sourcePath,
   entry: {
     main: './app.js',
@@ -67,74 +67,44 @@ module.exports = {
     filename: '[hash].[name].bundle.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.json$/,
-        use: 'json-loader'
-      },
-      {
-        test: /\.html$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'file-loader',
+    rules: [{
+      test: /\.json$/,
+      use: 'json-loader'
+    }, {
+      test: /\.html$/,
+      exclude: /node_modules/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
+      }]
+    }, {
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      use: ['url-loader?limit=100000']
+    }, {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', {
+          loader: 'postcss-loader',
           options: {
-            name: '[name].[ext]'
+            plugins: function() {
+              return [
+                require('autoprefixer')
+              ];
+            }
           }
-        }]
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: ['url-loader?limit=100000']
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', {
+        }, {
           loader: 'sass-loader',
           options: {
-            includePaths: neat.includePaths
+            includePaths: neat.includePaths.concat(path.join(path.dirname(require.resolve('mdi')), 'scss'))
           }
-        }]
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        exclude: [/node_modules\/bourbon/],
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')(),
-                  require('postcss-assets')({
-                    basePath: '.',
-                    relativeTo: 'src/img',
-                    loadPaths: ['src', 'mdi/fonts']
-                  }),
-                  require('postcss-import')({
-                    transform: function (content) {
-                      return content.replace(/url\((?!.?data)/g, 'resolve(');
-                    }
-                  })
-                ];
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-    ],
+        }
+      ]
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: 'babel-loader',
+    }, ],
   },
   resolve: {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],

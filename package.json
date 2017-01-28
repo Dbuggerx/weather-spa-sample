@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "prod": "NODE_ENV='production' webpack-dev-server -p",
+    "prod": "NODE_ENV='production' webpack-dev-server",
     "build": "NODE_ENV='production' webpack",
     "test": "karma start",
     "postinstall": "node node_modules/node-sass/scripts/install.js && yarn add --dev node-sass --force --ignore-scripts && node node_modules/phantomjs-prebuilt/install.js",
