@@ -3,8 +3,11 @@ import Geolocation from '../common/services/geolocation/geolocation';
 const privates = new WeakMap();
 
 export default class HomeCtrl {
+  static get $inject(){
+    return ['$scope', '$state', 'OpenWeather'];
+  }
+
   constructor($scope, $state, OpenWeather) {
-    'ngInject';
     this.title = 'Waiting for your location...';
 
     privates.set(this, {

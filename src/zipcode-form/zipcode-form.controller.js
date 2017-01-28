@@ -3,8 +3,11 @@ import jsonData from 'countries-list/countries.minimal.json';
 const privates = new WeakMap();
 
 export default class ZipcodeFormCtrl {
+  static get $inject(){
+    return ['$scope', '$state', 'OpenWeather'];
+  }
+
   constructor($scope, $state, OpenWeather) {
-    'ngInject';
     privates.set(this, {
       $scope,
       $state,

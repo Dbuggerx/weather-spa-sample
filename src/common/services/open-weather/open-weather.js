@@ -3,9 +3,11 @@ import angular from 'angular';
 const privates = new WeakMap();
 
 export default class OpenWeather {
-  constructor($resource) {
-    'ngInject';
+  static get $inject(){
+    return ['$resource'];
+  }
 
+  constructor($resource) {
     const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
     const key = 'a22b2fa4abeb9caf7969f9961e7970b8';
 

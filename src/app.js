@@ -16,11 +16,12 @@ export default angular.module('weather', [
     zipform.name,
     refillsDropdown.name
   ])
-  .config(($stateProvider, $locationProvider) => {
-    'ngInject';
+  .config(['$stateProvider', '$locationProvider', ($stateProvider, $locationProvider) => {
     $stateProvider.state('weather', {
       abstract: true,
       templateUrl: 'app.html'
     });
     $locationProvider.html5Mode(true);
-  });
+  }]);
+
+
