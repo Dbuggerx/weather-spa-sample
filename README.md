@@ -1,5 +1,5 @@
 # weather-spa-sample
-Sample SPA done with AngularJS, ES6, JSPM, Gulp
+Sample SPA done with AngularJS, ES6, Webpack2
 
 [Check out my LinkedIn profile!](https://br.linkedin.com/in/danilo-cestari-82baab35)
 
@@ -7,7 +7,7 @@ Sample SPA done with AngularJS, ES6, JSPM, Gulp
 
 First, execute `yarn install && yarn run config` in the application directory, then:
 
-- To run the unit tests:
+- To run the unit tests (with code coverage report):
 	`yarn test`
 
 - To run the e2e tests:
