@@ -5,7 +5,7 @@ Sample SPA done with AngularJS, ES6, JSPM, Gulp
 
 **Running the application:**
 
-First, execute `yarn install` in the application directory, then:
+First, execute `yarn install && yarn run config` in the application directory, then:
 
 - To run the unit tests:
 	`yarn test`

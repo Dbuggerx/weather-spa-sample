@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp serve",
     "test": "karma start",
-    "postinstall": "node node_modules/node-sass/scripts/install.js && yarn add --dev node-sass --force --ignore-scripts && node node_modules/phantomjs-prebuilt/install.js && node_modules/jspm/jspm.js registry create bower jspm-bower-endpoint && node_modules/jspm/jspm.js install",
+    "config": "node node_modules/node-sass/scripts/install.js && yarn add --dev node-sass --force && node node_modules/phantomjs-prebuilt/install.js && node_modules/jspm/jspm.js registry create bower jspm-bower-endpoint && node_modules/jspm/jspm.js install",
     "protractor": "gulp protractor",
     "production": "gulp serve:dist",
     "build": "gulp build"
@@ -187,7 +187,7 @@
     "karma-spec-reporter": "0.0.26",
     "node-bourbon": "^4.2.8",
     "node-neat": "^1.7.2",
-    "node-sass": "^4.3.0",
+    "node-sass": "^4.4.0",
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.12",
     "postcss-assets": "^4.1.0",
