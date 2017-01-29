@@ -1,12 +1,15 @@
 import $ from 'jquery';
 
 export default class RefillsDropdown {
+  /* istanbul ignore next */
   constructor() {
     this.restrict = 'A';
   }
 
   link(scope, el) {
-    let menu;
+    let button = $('.dropdown__button', el);
+    let menu = button.siblings('.dropdown__menu');
+
     function dropdownButtonClick() {
       menu.toggleClass('dropdown__menu-item--display');
     }
@@ -14,11 +17,10 @@ export default class RefillsDropdown {
       menu.removeClass('dropdown__menu-item--display');
     }
 
-    let button = $('.dropdown__button', el);
-    menu = button.siblings('.dropdown__menu');
-    $('.dropdown__button', el).on('click', dropdownButtonClick);
+    button.on('click', dropdownButtonClick);
     menu.on('click', '.dropdown__menu-item', itemClick);
 
+    /* istanbul ignore next */
     scope.$on('$destroy', () => {
       button.off('click', dropdownButtonClick);
       menu.off('click', '.dropdown__menu-item', itemClick);
