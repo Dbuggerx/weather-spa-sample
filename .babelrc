@@ -10,5 +10,22 @@
       }
     ],
     "stage-2"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "istanbul",
+          {
+            "useInlineSourceMaps": false,
+            "exclude": [
+              "**/*.spec.js",
+              "**/*.module.js",
+              "**/*.config.js"
+            ]
+          }
+        ]
+      ]
+    }
+  }
 }

@@ -1,8 +1,9 @@
 .git
 *.css
 node_modules
-jspm_packages
+coverage
 dist
 src/css
 src/js/templates.js
 tags
+npm-debug.log

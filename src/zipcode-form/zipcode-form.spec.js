@@ -15,7 +15,7 @@ describe('Zipcode Form', () => {
       $scope = $rootScope.$new();
     }));
 
-    it('should respond to URL', function () {
+    it('should respond to URL', () => {
       expect($state.href('weather.zipcode-form')).toEqual('/zipcode');
     });
   });

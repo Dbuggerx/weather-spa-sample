@@ -10,13 +10,21 @@ module.exports = function karmaConfig(config) {
       'jasmine'
     ],
 
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
     specReporter: {
       maxLogLines: 5, // limit number of lines logged per test
       suppressErrorSummary: true, // do not print error summary
       suppressFailed: false, // do not print information about failed tests
       suppressPassed: false, // do not print information about passed tests
       suppressSkipped: true // do not print information about skipped tests
+    },
+
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        { type: 'text-summary' },
+        { type: 'html' }
+      ]
     },
 
     files: [
@@ -55,7 +63,7 @@ module.exports = function karmaConfig(config) {
         }]
       },
       resolve: {
-        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
+        extensions: ['.js'],
         modules: [
           path.resolve(__dirname, 'node_modules'),
           sourcePath
