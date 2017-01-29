@@ -1,24 +1,15 @@
-// Karma configuration
+const path = require('path');
+const sourcePath = path.join(__dirname, './src');
 
-module.exports = function (config) {
-  'use strict';
-
+// Reference: http://karma-runner.github.io/0.12/config/configuration-file.html
+module.exports = function karmaConfig(config) {
   config.set({
+    frameworks: [
+      // Reference: https://github.com/karma-runner/karma-jasmine
+      // Set framework to jasmine
+      'jasmine'
+    ],
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: './',
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jspm', 'jasmine'],
-
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['spec'],
     specReporter: {
       maxLogLines: 5, // limit number of lines logged per test
@@ -28,37 +19,58 @@ module.exports = function (config) {
       suppressSkipped: true // do not print information about skipped tests
     },
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
+    files: [
+      { pattern: 'node_modules/babel-polyfill/dist/polyfill.js', watched: false },
+      'tests.webpack.js'
+    ],
+
+    preprocessors: {
+      // Reference: http://webpack.github.io/docs/testing.html
+      // Reference: https://github.com/webpack/karma-webpack
+      // Convert files with webpack and load sourcemaps
+      'tests.webpack.js': ['webpack', 'sourcemap'],
+      // 'src/home/**/!(*.config|*.module|*.spec|*.protractor)*.js': ['coverage']
+    },
+
+    browsers: [
+      // Run tests using PhantomJS
+      'PhantomJS'
+    ],
+
     singleRun: true,
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
-
-    jspm: {
-      // Edit this to your needs
-      config: 'jspm.config.js',
-      loadFiles: ['src/**/*.spec.js'],
-      serveFiles: [
-        'jspm_packages/system-polyfills.js',
-        'src/**/*.js',
-        'src/**/*.html',
-        'src/**/*.css'
-      ]
+    webpack: {
+      devtool: 'inline-source-map',
+      context: sourcePath,
+      module: {
+        rules: [{
+           test: /(\.css|\.scss)$/,
+           loader: 'ignore-loader'
+         },{
+          test: /.js$/,
+          exclude: /node_modules/,
+          use: [{
+            loader: 'babel-loader'
+          }],
+        }]
+      },
+      resolve: {
+        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
+        modules: [
+          path.resolve(__dirname, 'node_modules'),
+          sourcePath
+        ]
+      }
     },
 
-    proxies: {
-      '/src': '/base/src',
-      '/jspm_packages/': '/base/jspm_packages/',
+    // Hide webpack build information from output
+    webpackMiddleware: {
+      stats: 'errors-only'
     },
-
-    // list of files to exclude
-    exclude: [],
-
-    files: ['node_modules/babel-polyfill/dist/polyfill.js'],
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO
+
   });
 };
