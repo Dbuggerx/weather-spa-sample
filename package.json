@@ -4,8 +4,13 @@
   "description": "Sample weather SPA",
   "main": "app.js",
   "scripts": {
+    "angular-templates:dev": "node node_modules/.bin/nghtml2js -m 'templates' -o src/common/templates.js",
+    "angular-templates:prod": "node node_modules/.bin/nghtml2js -m 'templates' -f 'src/**/*.html' -p src/ -o src/common/templates.js --htmlmin -s es2015",
+    "prestart": "yarn run angular-templates:dev",
     "start": "webpack-dev-server",
+    "preprod": "yarn run angular-templates:prod",
     "prod": "cross-env NODE_ENV='production' webpack-dev-server --watch-stdin",
+    "prebuild": "yarn run angular-templates:prod",
     "build": "cross-env NODE_ENV='production' webpack",
     "test": "cross-env NODE_ENV=test karma start",
     "preprotractor": "node_modules/protractor/bin/webdriver-manager update",
@@ -22,6 +27,7 @@
   "author": "Danilo Cestari",
   "license": "ISC",
   "devDependencies": {
+    "angular-template-cache": "^1.2.0",
     "autoprefixer": "^6.7.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.9",
