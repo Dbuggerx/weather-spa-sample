@@ -125,18 +125,19 @@ module.exports = {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
     modules: [
       path.resolve(__dirname, 'node_modules'),
-      sourcePath,
-      staticsPath
+      sourcePath
     ]
   },
   plugins,
   devServer: {
     contentBase: sourcePath,
+    watchContentBase: true,
     historyApiFallback: true,
     port: 3000,
     compress: isProd,
     inline: !isProd,
     hot: !isProd,
+    open: false,
     stats: {
       assets: true,
       children: false,

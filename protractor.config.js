@@ -1,24 +1,22 @@
+// An example configuration file.
 exports.config = {
-    // The address of a running selenium server.
-    seleniumAddress: 'http://localhost:4444/wd/hub',
+  directConnect: true,
 
-    // Capabilities to be passed to the webdriver instance.
-    capabilities: {
-        'browserName': 'chrome'
-    },
+  // Capabilities to be passed to the webdriver instance.
+  capabilities: {
+    'browserName': 'chrome'
+  },
 
-    // Spec patterns are relative to the current working directly when
-    // protractor is called.
-    specs: ['./**/*.protractor.js'],
+  // Framework to use. Jasmine is recommended.
+  framework: 'jasmine',
 
-    baseUrl: 'http://localhost:4000',
+  // Spec patterns are relative to the current working directory when
+  // protractor is called.
+  specs: ['./**/*.protractor.js'],
 
-    allScriptsTimeout: 22000,
-
-    // Options to be passed to Jasmine-node.
-    jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 30000
-    }
-
+  // Options to be passed to Jasmine.
+  jasmineNodeOpts: {
+    showColors: true,
+    defaultTimeoutInterval: 30000
+  }
 };
