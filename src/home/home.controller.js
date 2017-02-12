@@ -2,8 +2,8 @@ import Geolocation from '../common/services/geolocation/geolocation';
 
 const privates = new WeakMap();
 
-export default class HomeCtrl {
-  static get $inject(){
+export default class HomeController {
+  static get $inject() {
     return ['$scope', '$state', 'OpenWeather'];
   }
 
@@ -17,7 +17,7 @@ export default class HomeCtrl {
     this.getWeatherByGeolocation();
   }
 
-  getWeatherByGeolocation(){
+  getWeatherByGeolocation() {
     const me = privates.get(this);
     return Geolocation.getLocation()
       .then(position => me.OpenWeather.getByGeolocation(position.coords.latitude, position.coords.longitude))

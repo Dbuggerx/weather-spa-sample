@@ -1,3 +1,4 @@
+/* eslint-disable */
 const webpack = require('webpack');
 const path = require('path');
 const neat = require('node-neat');
@@ -102,7 +103,7 @@ module.exports = {
       use: ['style-loader', 'css-loader', {
         loader: 'postcss-loader',
         options: {
-          plugins: function () {
+          plugins() {
             return [
               require('autoprefixer')
             ];
@@ -115,6 +116,19 @@ module.exports = {
           }
         }
       ]
+    }, {
+      test: /\.js$/,
+      enforce: 'pre',
+      exclude: [/node_modules/, /templates.js/],
+      use: {
+        loader: 'eslint-loader',
+        options: {
+          emitError: true,
+          emitWarning: true,
+          failOnWarning: true,
+          failOnError: true
+        }
+      }
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -157,6 +171,6 @@ module.exports = {
       colors: {
         green: '\u001b[32m',
       }
-    },
+    }
   }
 };

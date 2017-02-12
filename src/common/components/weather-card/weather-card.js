@@ -2,6 +2,6 @@ export default {
   bindings: {
     weather: '='
   },
-  controller: 'WeatherCardCtrl',
+  controller: 'WeatherCardController',
   templateUrl: 'common/components/weather-card/weather-card.html'
 };

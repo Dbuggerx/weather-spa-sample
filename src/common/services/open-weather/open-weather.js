@@ -1,9 +1,7 @@
-import angular from 'angular';
-
 const privates = new WeakMap();
 
 export default class OpenWeather {
-  static get $inject(){
+  static get $inject() {
     return ['$resource'];
   }
 

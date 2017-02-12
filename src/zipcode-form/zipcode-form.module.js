@@ -10,4 +10,4 @@ export default angular.module('weather.zipcode-form', [
     weatherCard.name
   ])
   .config(config)
-  .controller('ZipcodeFormCtrl', ctrl);
+  .controller('ZipcodeFormController', ctrl);

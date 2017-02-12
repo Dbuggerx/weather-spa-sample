@@ -1,7 +1,8 @@
+/* eslint one-var: "off" */
 import HomeModule from './home.module';
 import MainModule from '../app';
 import Geolocation from '../common/services/geolocation/geolocation';
-import HomeCtrl from './home.controller';
+import HomeController from './home.controller';
 import 'angular-mocks';
 
 describe('Home', () => {
@@ -17,12 +18,12 @@ describe('Home', () => {
       $scope = $rootScope.$new();
     }));
 
-    it('should redirect to /home', function () {
+    it('should redirect to /home', () => {
       $scope.$apply();
       expect($state.current.name).toEqual('weather.home');
     });
 
-    it('should respond to URL', function () {
+    it('should respond to URL', () => {
       expect($state.href('weather.home')).toEqual('/home');
     });
   });
@@ -33,7 +34,7 @@ describe('Home', () => {
       $scope = _$rootScope_.$new();
       openWeatherMock = jasmine.createSpyObj('OpenWeather', ['getByGeolocation']);
       openWeatherMock.getByGeolocation.and.returnValue();
-      makeController = () => _$controller_('HomeCtrl', {
+      makeController = () => _$controller_('HomeController', {
         $scope,
         OpenWeather: openWeatherMock
       });
@@ -47,16 +48,16 @@ describe('Home', () => {
 
     describe('constructor', () => {
       let getLocationByGeolocationSpy;
-      beforeEach(() => getLocationByGeolocationSpy = spyOn(HomeCtrl.prototype, 'getWeatherByGeolocation').and.returnValue());
+      beforeEach(() => getLocationByGeolocationSpy = spyOn(HomeController.prototype, 'getWeatherByGeolocation').and.returnValue());
       it('should call getWeatherByGeolocation', () => {
-        const controller = makeController();
+        makeController();
         expect(getLocationByGeolocationSpy).toHaveBeenCalled();
       });
     });
 
     describe('getWeatherByGeolocation', () => {
       it('should call Geolocation.getLocation', () => {
-        const controller = makeController();
+        makeController();
         expect(Geolocation.getLocation).toHaveBeenCalled();
       });
 
@@ -69,5 +70,4 @@ describe('Home', () => {
       });
     });
   });
-
 });

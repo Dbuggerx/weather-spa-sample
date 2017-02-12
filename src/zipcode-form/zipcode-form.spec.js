@@ -1,3 +1,4 @@
+/* eslint one-var: "off" */
 import ZipcodeModule from './zipcode-form.module';
 import MainModule from '../app';
 import 'angular-mocks';
@@ -6,13 +7,12 @@ describe('Zipcode Form', () => {
   beforeEach(angular.mock.module(ZipcodeModule.name));
 
   describe('Module', () => {
-    let $state, $scope;
+    let $state;
     beforeEach(angular.mock.module(MainModule.name));
     beforeEach(angular.mock.inject((_$state_, $rootScope, $templateCache) => {
       $state = _$state_;
       $templateCache.put('app.html', '');
       $templateCache.put('zipcode-form/zipcode-form.html', '');
-      $scope = $rootScope.$new();
     }));
 
     it('should respond to URL', () => {
@@ -26,7 +26,7 @@ describe('Zipcode Form', () => {
       $scope = _$rootScope_.$new();
       openWeatherMock = jasmine.createSpyObj('OpenWeather', ['getByZip']);
       openWeatherMock.getByZip.and.returnValue(Promise.resolve());
-      makeController = () => _$controller_('ZipcodeFormCtrl', {
+      makeController = () => _$controller_('ZipcodeFormController', {
         $scope,
         OpenWeather: openWeatherMock
       });
@@ -76,7 +76,5 @@ describe('Zipcode Form', () => {
         expect(controller.getErrorMsg()).toBeNull();
       });
     });
-
   });
-
 });

@@ -1,25 +1,25 @@
 <fieldset class="container">
 
-  <form ng-submit="zipcodeFormCtrl.getWeather()" class="zipcode-form">
+  <form ng-submit="ZipcodeFormController.getWeather()" class="zipcode-form">
     <h1 class="zipcode-form__row">Please, provide your location</h1>
     <hr />
-    <div class="zipcode-form__row zipcode-form__row--error" ng-if="zipcodeFormCtrl.errorMsg">
-      {{zipcodeFormCtrl.errorMsg}}
+    <div class="zipcode-form__row zipcode-form__row--error" ng-if="ZipcodeFormController.errorMsg">
+      {{ZipcodeFormController.errorMsg}}
     </div>
     <div class="zipcode-form__row">
         <label for="zipcode">Zip code:</label>
-        <input type="text" name="zipcode" id="zipcode" class="zipcode-form__input" ng-model="zipcodeFormCtrl.zipCode" placeholder="Zipcode" />
+        <input type="text" name="zipcode" id="zipcode" class="zipcode-form__input" ng-model="ZipcodeFormController.zipCode" placeholder="Zipcode" />
     </div>
     <div class="zipcode-form__row">
       <label for="country">Country:</label>
       <div refills-dropdown>
         <div class="dropdown__container">
           <div class="dropdown__button">
-            {{zipcodeFormCtrl.country.name}}
+            {{ZipcodeFormController.country.name}}
           </div>
           <ul class="dropdown__menu">
-            <li class="dropdown__menu-item" data-ng-repeat="country in zipcodeFormCtrl.countries"
-            data-ng-click="zipcodeFormCtrl.selectCountry(country)">
+            <li class="dropdown__menu-item" data-ng-repeat="country in ZipcodeFormController.countries"
+            data-ng-click="ZipcodeFormController.selectCountry(country)">
               {{country.name}}
             </li>
           </ul>
@@ -30,6 +30,6 @@
       <input type="submit" value="Check Weather" class="zipcode-form__right" />
     </div>
   </form>
-  <hr ng-if="zipcodeFormCtrl.weather" />
-  <weather-card weather="zipcodeFormCtrl.weather"></weather-card>
+  <hr ng-if="ZipcodeFormController.weather" />
+  <weather-card weather="ZipcodeFormController.weather"></weather-card>
 </fieldset>

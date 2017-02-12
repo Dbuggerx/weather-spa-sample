@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": false
+    },
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "angular",
+    "plugin:jasmine/recommended"
+  ],
+  "plugins": [
+    "jasmine",
+    "protractor"
+  ],
+  "rules": {
+    "no-const-assign": "warn",
+    "no-this-before-super": "warn",
+    "no-undef": "warn",
+    "no-unreachable": "warn",
+    "no-unused-vars": "warn",
+    "constructor-super": "warn",
+    "valid-typeof": "warn",
+    "require-jsdoc": "off",
+    "max-len": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "angular/no-service-method": "off",
+    "angular/angularelement": "off"
+  }
+}

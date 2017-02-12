@@ -2,15 +2,16 @@ import jsonData from 'countries-list/countries.minimal.json';
 
 const privates = new WeakMap();
 
-export default class ZipcodeFormCtrl {
-  static get $inject(){
-    return ['$scope', '$state', 'OpenWeather'];
+export default class ZipcodeFormController {
+  static get $inject() {
+    return ['$scope', '$state', '$log', 'OpenWeather'];
   }
 
-  constructor($scope, $state, OpenWeather) {
+  constructor($scope, $state, $log, OpenWeather) {
     privates.set(this, {
       $scope,
       $state,
+      $log,
       OpenWeather
     });
 
@@ -49,10 +50,10 @@ export default class ZipcodeFormCtrl {
       .then(weather => {
         this.weather = weather;
       })
-      .catch(err => console.log(err));
+      .catch(err => me.$log(err));
   }
 
-  getErrorMsg(){
+  getErrorMsg() {
     if(this.zipCode.trim().length === 0)
       return 'Please inform the zipcode';
     else if(!this.country.code)
