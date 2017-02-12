@@ -35,7 +35,7 @@ gulp.task('serve', ['sass', 'templates'], () => {
     }
   });
 
-  gulp.watch([global.paths.js], ['lintjs', 'reload']).on('change', onChange);
+  gulp.watch([global.paths.js], ['reload']).on('change', onChange);
   gulp.watch([global.paths.html], ['templates', 'reload']).on('change', onChange);
   gulp.watch('**/*.scss', ['sass']).on('change', onChange);
   gulp.watch([path.join(global.paths.src, 'app.css')], ['reload']).on('change', onChange);

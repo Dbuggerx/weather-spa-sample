@@ -9,16 +9,10 @@ SystemJS.config({
   browserConfig: {
     "baseURL": "/"
   },
-  devConfig: {
-    "map": {
-      "plugin-babel": "npm:systemjs-plugin-babel@0.0.15",
-      "mdi": "npm:mdi@1.8.36"
-    }
-  },
   transpiler: "plugin-babel",
   packages: {
     "app": {
-      "main": "app.js",
+      "main": "./app.js",
       "meta": {
         "*.js": {
           "loader": "plugin-babel"
@@ -48,6 +42,7 @@ SystemJS.config({
     "constants": "npm:jspm-nodelibs-constants@0.2.0",
     "countries-list": "npm:countries-list@1.2.0",
     "crypto": "npm:jspm-nodelibs-crypto@0.2.0",
+    "css": "github:systemjs/plugin-css@0.1.32",
     "events": "npm:jspm-nodelibs-events@0.2.0",
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
     "jquery": "npm:jquery@3.1.1",
@@ -57,6 +52,7 @@ SystemJS.config({
     "normalize-css": "bower:normalize-css@4.2.0",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
+    "plugin-babel": "npm:systemjs-plugin-babel@0.0.21",
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "stream": "npm:jspm-nodelibs-stream@0.2.0",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.0",

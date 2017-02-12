@@ -32,15 +32,14 @@
       "babel-core": "npm:babel-core@^6.22.1",
       "bitters": "bower:bitters@^1.4.0",
       "countries-list": "npm:countries-list@^1.2.0",
+      "css": "github:systemjs/plugin-css@^0.1.32",
       "jquery": "npm:jquery@^3.1.1",
       "json": "github:systemjs/plugin-json@^0.2.0",
       "moment": "npm:moment@^2.15.1",
-      "normalize-css": "bower:normalize-css@^4.2.0"
+      "normalize-css": "bower:normalize-css@^4.2.0",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.21"
     },
-    "devDependencies": {
-      "mdi": "npm:mdi@^1.8.36",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.15"
-    },
+    "devDependencies": {},
     "peerDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
@@ -176,7 +175,7 @@
     "gulp-util": "^3.0.7",
     "jasmine-core": "^2.5.2",
     "jshint": "^2.9.3",
-    "jspm": "0.17.0-beta.32",
+    "jspm": "0.17.0-beta.39",
     "jspm-bower-endpoint": "^0.3.2",
     "karma": "^1.4.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -196,5 +195,8 @@
     "protractor": "^5.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "mdi": "^1.8.36"
   }
 }

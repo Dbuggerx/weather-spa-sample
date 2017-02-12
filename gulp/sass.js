@@ -18,7 +18,7 @@ import neat from 'node-neat';
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded',
-  includePaths: neat.includePaths
+  includePaths: neat.includePaths.concat(path.join(path.dirname(require.resolve('mdi')), 'scss'))
 };
 
 gulp.task('sass', () => {

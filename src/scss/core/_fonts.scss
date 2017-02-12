@@ -1,9 +1,8 @@
-$mdi-font-path: '../jspm_packages/npm/mdi@1.8.36/fonts';
-@import '../../jspm_packages/npm/mdi@1.8.36/scss/materialdesignicons';
+$mdi-font-path: '../../node_modules/mdi/fonts';
+
+@import 'materialdesignicons';
 
 @mixin icon($name) {
   content: mdi($name);
   font-family: 'Material Design Icons';
 }
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
