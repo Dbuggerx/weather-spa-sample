@@ -15,7 +15,8 @@
     "test": "cross-env NODE_ENV=test karma start",
     "preprotractor": "node_modules/protractor/bin/webdriver-manager update",
     "protractor": "concurrently --kill-others 'yarn run prod' 'sleepms 8000 && node node_modules/protractor/bin/protractor ./protractor.config.js'",
-    "config": "node node_modules/node-sass/scripts/install.js && yarn add --dev node-sass --force && node node_modules/phantomjs-prebuilt/install.js && node_modules/jspm/jspm.js registry create bower jspm-bower-endpoint && node_modules/jspm/jspm.js install"
+    "config": "node node_modules/node-sass/scripts/install.js && yarn add --dev node-sass --force && node node_modules/phantomjs-prebuilt/install.js && node_modules/jspm/jspm.js registry create bower jspm-bower-endpoint && node_modules/jspm/jspm.js install",
+    "scan-dependencies": "node_modules/retire/bin/retire"
   },
   "keywords": [
     "weather",
@@ -68,6 +69,7 @@
     "phantomjs-prebuilt": "^2.1.12",
     "postcss-loader": "^1.2.2",
     "protractor": "^5.0.0",
+    "retire": "^1.2.11",
     "sass-loader": "^4.1.1",
     "sleep-ms": "^2.0.1",
     "style-loader": "^0.13.1",
