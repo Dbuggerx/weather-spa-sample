@@ -170,6 +170,7 @@
     "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^3.8.0",
     "gulp-svgmin": "^1.2.3",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
@@ -194,7 +195,10 @@
     "postcss-import": "^9.1.0",
     "protractor": "^5.0.0",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-scss": "^1.4.1",
+    "stylelint-selector-bem-pattern": "^1.0.0"
   },
   "dependencies": {
     "mdi": "^1.8.36"

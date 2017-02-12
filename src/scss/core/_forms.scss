@@ -15,7 +15,6 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
-  vertical-align: middle;
 }
 
 input,
@@ -27,7 +26,7 @@ textarea {
 }
 
 #{$all-text-inputs},
-select[multiple], %form-control {
+%form-control {
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -56,14 +55,14 @@ select[multiple], %form-control {
       border: $base-border;
     }
   }
+
+  &::placeholder {
+    color: tint($base-font-color, 40%);
+  }
 }
 
 textarea {
   resize: vertical;
-}
-
-[type="search"] {
-  appearance: none;
 }
 
 [type="checkbox"],
@@ -79,6 +78,5 @@ textarea {
 
 select {
   margin-bottom: $small-spacing;
-  max-width: 100%;
-  width: auto;
+  width: 100%;
 }

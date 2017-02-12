@@ -14,6 +14,7 @@ import del from 'del';
 import path from 'path';
 import concat from 'gulp-concat';
 import neat from 'node-neat';
+import gulpStylelint from 'gulp-stylelint';
 
 const sassOptions = {
   errLogToConsole: true,
@@ -21,7 +22,17 @@ const sassOptions = {
   includePaths: neat.includePaths.concat(path.join(path.dirname(require.resolve('mdi')), 'scss'))
 };
 
-gulp.task('sass', () => {
+gulp.task('lint-styles', function lintCssTask() {
+  return gulp
+    .src('src/**/*.scss')
+    .pipe(gulpStylelint({
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }));
+});
+
+gulp.task('sass', ['lint-styles'], () => {
   return gulp.src(global.paths.sassBase)
     .pipe(rename('app.css'))
     .pipe(sass(sassOptions).on('error', sass.logError))
