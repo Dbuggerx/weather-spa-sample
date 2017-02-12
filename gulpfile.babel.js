@@ -1,4 +1,4 @@
-/*jshint node:true */
+/* eslint-disable */
 'use strict';
 
 // Specify paths & globbing patterns for tasks.

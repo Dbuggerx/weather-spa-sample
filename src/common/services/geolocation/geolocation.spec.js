@@ -1,9 +1,8 @@
+/* eslint angular/window-service: "off" */
 import Geolocation from './geolocation';
 
 describe('Geolocation service', () => {
-
   describe('getLocation', () => {
-
     it('should call navigator.geolocation.getCurrentPosition and return position', done => {
       window.navigator = {
         geolocation: {

@@ -4,5 +4,7 @@
   "editor.detectIndentation": false,
   "stylelint.enable": true,
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "eslint.enable": true,
+  "eslint.options": { "configFile": ".eslintrc.json" }
 }

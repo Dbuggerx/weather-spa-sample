@@ -1,10 +1,11 @@
+/* eslint jasmine/no-spec-dupes: "off", one-var: "off" */
 import OpenWeatherModule from './open-weather.module';
 import 'angular-mocks';
 
 describe('OpenWeather Service', () => {
   let OpenWeather, $httpBackend;
   beforeEach(angular.mock.module(OpenWeatherModule.name));
-  beforeEach(inject((_$httpBackend_, _OpenWeather_) => {
+  beforeEach(angular.mock.inject((_$httpBackend_, _OpenWeather_) => {
     $httpBackend = _$httpBackend_;
     OpenWeather = _OpenWeather_;
   }));
@@ -40,5 +41,4 @@ describe('OpenWeather Service', () => {
       $httpBackend.flush();
     });
   });
-
 });

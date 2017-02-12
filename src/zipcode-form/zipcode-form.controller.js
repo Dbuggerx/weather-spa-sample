@@ -1,14 +1,17 @@
-/** Loading the ISO country list using JSPM's JSON loader plugin */
-import jsonData from '../../jspm_packages/npm/countries-list@1.2.0/countries.minimal.json!json';
+import jsonData from 'countries-list/countries.minimal.json';
 
 const privates = new WeakMap();
 
-export default class ZipcodeFormCtrl {
-  constructor($scope, $state, OpenWeather) {
-    'ngInject';
+export default class ZipcodeFormController {
+  static get $inject() {
+    return ['$scope', '$state', '$log', 'OpenWeather'];
+  }
+
+  constructor($scope, $state, $log, OpenWeather) {
     privates.set(this, {
       $scope,
       $state,
+      $log,
       OpenWeather
     });
 
@@ -47,10 +50,10 @@ export default class ZipcodeFormCtrl {
       .then(weather => {
         this.weather = weather;
       })
-      .catch(err => console.log(err));
+      .catch(err => me.$log(err));
   }
 
-  getErrorMsg(){
+  getErrorMsg() {
     if(this.zipCode.trim().length === 0)
       return 'Please inform the zipcode';
     else if(!this.country.code)

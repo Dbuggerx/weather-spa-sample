@@ -8,12 +8,18 @@ import path from 'path';
 import cache from 'gulp-cached';
 import ngAnnotate from 'gulp-ng-annotate';
 import del from 'del';
+import eslint from 'gulp-eslint';
 
-gulp.task('del-jsdoc', () => {
-  return del([global.paths.jsdocs + '/**']);
-});
+gulp.task('lint-js', () => 
+  gulp.src(['src/**/*.js', '!**/templates.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+);
 
-gulp.task('build-js', ['build-templates'], () => {
+gulp.task('del-jsdoc', () => del([global.paths.jsdocs + '/**']));
+
+gulp.task('build-js', ['lint-js', 'build-templates'], () => {
   const src = path.join(global.paths.src, 'app.js');
   const dist = path.join(global.paths.dist, 'app.min.js');
   const builder = new jspm.Builder(global.paths.src, './jspm.config.js');
