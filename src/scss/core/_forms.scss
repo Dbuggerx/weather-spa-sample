@@ -25,8 +25,8 @@ textarea {
   font-size: $base-font-size;
 }
 
-#{$all-text-inputs}, %form-control {
-  appearance: none;
+#{$all-text-inputs},
+%form-control {
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;

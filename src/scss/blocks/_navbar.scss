@@ -1,3 +1,4 @@
+//* @define navbar
 .navbar {
   background-color: $primary-color;
   color: $light-gray;
@@ -17,6 +18,7 @@
 
   &__link {
     color: $light-gray;
+
     &--right {
       float: right;
     }

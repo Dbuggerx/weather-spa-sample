@@ -3,16 +3,22 @@ const path = require('path');
 const neat = require('node-neat');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 
-console.log('Production is:', isProd);
+console.log('Production mode is:', isProd);
 
 const sourcePath = path.join(__dirname, './src');
 const staticsPath = path.join(__dirname, './dist');
 
 const plugins = [
+  new StyleLintPlugin({
+    configFile: '.stylelintrc',
+    syntax: 'scss',
+    failOnError: true
+  }),
   new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor', 'manifest'],
     minChunks: Infinity

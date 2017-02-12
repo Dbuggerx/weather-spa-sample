@@ -1,3 +1,4 @@
+//* @define dropdown
 .dropdown {
   $dropdown-description-width: 110px;
   $dropdown-border: 1px solid $medium-gray;
@@ -20,25 +21,27 @@
 
   &__button {
     @extend %form-control;
+
     cursor: pointer;
     position: relative;
     text-align: left;
-  }
 
-  &__button:after {
-    color: $base-font-color;
-    content: '\25BE';
-    display: block;
-    position: absolute;
-    right: $dropdown-padding;
-    top: $dropdown-arrow-top-distance;
+    &::after {
+      color: $base-font-color;
+      content: '\25BE';
+      display: block;
+      position: absolute;
+      right: $dropdown-padding;
+      top: $dropdown-arrow-top-distance;
+    }
   }
 
   &__menu {
-    @include transition (all .2s ease-in-out);
+    @include transition (all 0.2s ease-in-out);
+
     background: $dropdown-background;
     border: $dropdown-border;
-    box-shadow: 0 2px 2px transparentize($dark-gray, .8);
+    box-shadow: 0 2px 2px transparentize($dark-gray, 0.8);
     cursor: pointer;
     display: none;
     margin: 0;
@@ -57,14 +60,14 @@
     border-bottom: $dropdown-inner-border;
     list-style: none;
     padding: $dropdown-padding / 2;
-  }
 
-  &__menu-item:hover {
-    background: $dropdown-background-hover;
-  }
+    &:hover {
+      background: $dropdown-background-hover;
+    }
 
-  &__menu-item:last-child {
-    border: 0;
+    &:last-child {
+      border: 0;
+    }
   }
 
   &__menu-item--display {
