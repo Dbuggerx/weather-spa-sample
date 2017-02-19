@@ -12,6 +12,7 @@
     "prod": "cross-env NODE_ENV='production' webpack-dev-server --watch-stdin",
     "prebuild": "yarn run angular-templates:prod",
     "build": "cross-env NODE_ENV='production' webpack",
+    "pretest": "yarn run angular-templates:dev",
     "test": "cross-env NODE_ENV=test karma start",
     "preprotractor": "node_modules/protractor/bin/webdriver-manager update",
     "protractor": "concurrently --kill-others 'yarn run prod' 'sleepms 8000 && node node_modules/protractor/bin/protractor ./protractor.config.js'",
