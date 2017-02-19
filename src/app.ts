@@ -1,4 +1,4 @@
-import angular from 'angular';
+import * as angular from 'angular';
 import 'angular-ui-router';
 import './common/templates';
 import home from './home/home.module';
@@ -16,7 +16,7 @@ export default angular.module('weather', [
     zipform.name,
     refillsDropdown.name
   ])
-  .config(['$stateProvider', '$locationProvider', ($stateProvider, $locationProvider) => {
+  .config(['$stateProvider', '$locationProvider', ($stateProvider: angular.ui.IStateProvider, $locationProvider: angular.ILocationProvider) => {
     $stateProvider.state('weather', {
       abstract: true,
       templateUrl: 'app.html'

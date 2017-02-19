@@ -1,4 +1,4 @@
-import angular from 'angular';
+import * as angular from 'angular';
 import RefillsDropdown from './refills-dropdown';
 
 export default angular.module('refills-dropdown', [])

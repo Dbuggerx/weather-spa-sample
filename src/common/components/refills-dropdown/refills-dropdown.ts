@@ -1,12 +1,14 @@
-import $ from 'jquery';
+import * as $ from 'jquery';
 
-export default class RefillsDropdown {
+export default class RefillsDropdown implements angular.IDirective {
+  restrict?: string;
+
   /* istanbul ignore next */
   constructor() {
     this.restrict = 'A';
   }
 
-  link(scope, el) {
+  link(scope: angular.IScope, el: angular.IAugmentedJQuery) {
     let button = $('.dropdown__button', el);
     let menu = button.siblings('.dropdown__menu');
 

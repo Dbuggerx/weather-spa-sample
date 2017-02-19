@@ -5,6 +5,7 @@ const neat = require('node-neat');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -31,7 +32,7 @@ const plugins = [
     template: 'index.ejs'
   }),
   new CopyWebpackPlugin([
-    { from: 'img', to: 'img' }
+    { from: 'img', to: 'assets' }
   ])
 ];
 
@@ -42,7 +43,7 @@ if (isProd) {
       debug: false
     }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJSPlugin({
       compress: {
         warnings: false,
         screw_ie8: true,
@@ -70,7 +71,7 @@ module.exports = {
   devtool: isProd ? 'cheap-module-source-map' : 'eval',
   context: sourcePath,
   entry: {
-    main: './app.js',
+    main: './app.ts',
     vendor: ['angular', 'angular-resource', 'angular-ui-router', 'jquery', 'moment']
   },
   output: {
@@ -96,6 +97,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 25000,
+          outputPath: 'assets/'
         }
       }
     }, {
@@ -116,33 +118,29 @@ module.exports = {
           }
         }
       ]
-    }, {
-      test: /\.js$/,
+    }, /*{
+      test: /\.(js|ts)$/,
       enforce: 'pre',
       exclude: [/node_modules/, /templates.js/],
       use: {
-        loader: 'eslint-loader',
+        loader: 'ts-loader',
         options: {
-          emitError: true,
-          emitWarning: true,
-          failOnWarning: true,
-          failOnError: true
         }
       }
-    }, {
-      test: /\.js$/,
+    },*/ {
+      test: /\.ts$/,
       exclude: /node_modules/,
-      use: 'babel-loader',
+      use: 'ts-loader',
     }, {
       test: /\.css$/,
-      use: [
+      use: [  
         { loader: "style-loader" },
         { loader: "css-loader" },
       ],
     }],
   },
   resolve: {
-    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
+    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.ts'],
     modules: [
       path.resolve(__dirname, 'node_modules'),
       sourcePath
