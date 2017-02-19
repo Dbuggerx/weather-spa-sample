@@ -31,7 +31,7 @@ const plugins = [
     template: 'index.ejs'
   }),
   new CopyWebpackPlugin([
-    { from: 'img', to: 'img' }
+    { from: 'img', to: 'assets' }
   ])
 ];
 
@@ -96,6 +96,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 25000,
+          outputPath: 'assets/'
         }
       }
     }, {
