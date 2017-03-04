@@ -1,7 +1,8 @@
 /* eslint-disable */
 const webpack = require('webpack');
 const path = require('path');
-const neat = require('node-neat');
+const bourbon = require('bourbon');
+const neat = require('bourbon-neat');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -17,8 +18,7 @@ const staticsPath = path.join(__dirname, './dist');
 const plugins = [
   new StyleLintPlugin({
     configFile: '.stylelintrc',
-    syntax: 'scss',
-    failOnError: true
+    syntax: 'scss'
   }),
   new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor', 'manifest'],
@@ -96,7 +96,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 25000,
-          outputPath: 'assets/'
+          outputPath: 'assets/',
+          publicPath: 'assets/'
         }
       }
     }, {
@@ -113,7 +114,9 @@ module.exports = {
       }, {
           loader: 'sass-loader',
           options: {
-            includePaths: neat.includePaths.concat(path.join(path.dirname(require.resolve('mdi')), 'scss'))
+            includePaths: bourbon.includePaths.concat(
+              neat.includePaths, 
+              path.join(path.dirname(require.resolve('mdi')), 'scss'))
           }
         }
       ]

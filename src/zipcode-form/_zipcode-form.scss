@@ -1,7 +1,10 @@
 //* @define zipcode-form
 .zipcode-form {
+  max-width: 30vw;
+  margin: auto;
+
   &__row {
-    @include outer-container(50%);
+    @include grid-container;
 
     line-height: $base-line-height;
     margin-bottom: 15px;

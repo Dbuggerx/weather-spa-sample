@@ -1,6 +1,6 @@
 //* @define home
 .home {
-  @include outer-container(50%);
+  @include grid-container;
 
   &__waiting {
     text-align: center;
