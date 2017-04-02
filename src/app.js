@@ -6,8 +6,8 @@ import zipform from './zipcode-form/zipcode-form.module';
 import refillsDropdown from './common/components/refills-dropdown/refills-dropdown.module';
 
 // Styles
-import 'scss/app.scss';
 import 'normalize-css/normalize.css';
+import 'scss/app.scss';
 
 export default angular.module('weather', [
     'templates',
@@ -23,5 +23,3 @@ export default angular.module('weather', [
     });
     $locationProvider.html5Mode(true);
   }]);
-
-

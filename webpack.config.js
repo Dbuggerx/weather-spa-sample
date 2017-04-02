@@ -6,6 +6,7 @@ const neat = require('bourbon-neat');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -24,15 +25,17 @@ const plugins = [
     names: ['vendor', 'manifest'],
     minChunks: Infinity
   }),
-  new webpack.EnvironmentPlugin(['NODE_ENV']),
-  new webpack.NamedModulesPlugin(),
+  new CopyWebpackPlugin([
+    { from: 'img', to: 'img' }
+  ]),
+  new ExtractTextPlugin('styles.css'),
+  new webpack.EnvironmentPlugin({
+    NODE_ENV: nodeEnv
+  }),
   new HtmlWebpackPlugin({
     title: 'Weather SPA Sample - By Danilo Cestari',
     template: 'index.ejs'
-  }),
-  new CopyWebpackPlugin([
-    { from: 'img', to: 'assets' }
-  ])
+  })
 ];
 
 if (isProd) {
@@ -67,7 +70,7 @@ if (isProd) {
 }
 
 module.exports = {
-  devtool: isProd ? 'cheap-module-source-map' : 'eval',
+  devtool: isProd ? 'nosources-source-map' : 'source-map',
   context: sourcePath,
   entry: {
     main: './app.js',
@@ -101,25 +104,32 @@ module.exports = {
         }
       }
     }, {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', {
-        loader: 'postcss-loader',
-        options: {
-          plugins() {
-            return [
-              require('autoprefixer')
-            ];
+      test: /\.s?css$/,
+      use: ExtractTextPlugin.extract({
+        use: [{
+            loader: 'css-loader',
+            options: {
+                sourceMap: !isProd
+            }
+          }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins() {
+              return [
+                require('autoprefixer')
+              ];
+            }
           }
-        }
-      }, {
+        }, {
           loader: 'sass-loader',
           options: {
+            sourceMap: !isProd,
             includePaths: bourbon.includePaths.concat(
-              neat.includePaths, 
+              neat.includePaths,
               path.join(path.dirname(require.resolve('mdi')), 'scss'))
           }
-        }
-      ]
+        }]
+      })
     }, {
       test: /\.js$/,
       enforce: 'pre',
@@ -137,12 +147,6 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: 'babel-loader',
-    }, {
-      test: /\.css$/,
-      use: [
-        { loader: "style-loader" },
-        { loader: "css-loader" },
-      ],
     }],
   },
   resolve: {
@@ -162,19 +166,6 @@ module.exports = {
     inline: !isProd,
     hot: !isProd,
     open: false,
-    stats: {
-      assets: true,
-      children: false,
-      chunks: false,
-      hash: false,
-      modules: false,
-      publicPath: false,
-      timings: true,
-      version: false,
-      warnings: true,
-      colors: {
-        green: '\u001b[32m',
-      }
-    }
+    stats: 'normal'
   }
 };
