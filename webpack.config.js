@@ -99,8 +99,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 25000,
-          outputPath: 'assets/',
-          publicPath: 'assets/'
+          outputPath: 'assets/'
         }
       }
     }, {

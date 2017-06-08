@@ -17,7 +17,7 @@ First, execute `yarn install && yarn run config` in the application directory, t
 	`yarn start`
 
 - To serve the "production" version of the application:
-	`yarn run production`
+	`yarn run prod`
 
 - To build the application for production (results will be inside the "dist" directory):
 	`yarn run build`
